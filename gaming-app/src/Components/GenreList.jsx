@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import GlobalAPI from '../Services/GlobalAPI';
 
-const GenreList = () => {
+function GenreList() {
     const [genreList, setGenreList] = useState([]);
     const [activeIndex, setActiveIndex] = useState(0);
 
@@ -9,13 +9,10 @@ const GenreList = () => {
         getGenresList();
     }, []);
 
-    const getGenresList = async () => {
-        try {
-            const response = await GlobalAPI.getGenresList;
-            setGenreList(response.data.results);
-        } catch (error) {
-            console.error('Error fetching genre list:', error);
-        }
+    const getGenresList = () => {
+        GlobalAPI.getGenresList.then((resp) => {
+            setGenreList(resp.data.results)
+        })
     };
 
     return (
@@ -23,7 +20,7 @@ const GenreList = () => {
             <h2 className='text-3xl font-bold dark:text-white'>Genre</h2>
             {genreList.map((item, index) => (
                 <div
-                    onClick={() => setActiveIndex(index)}
+                    onClick={() => { setActiveIndex(index); setGameListByGenre(index) }}
                     key={item.id} className={`group flex gap-2 items-center mb-2 cursor-pointer hover:bg-gray-300 p-2 rounded-lg
                  hover:dark:bg-gray-600
                  ${activeIndex == index ? "bg-gray-300 dark:bg-gray-600" : null}`}>

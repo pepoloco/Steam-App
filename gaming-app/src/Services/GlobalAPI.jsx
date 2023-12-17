@@ -8,8 +8,10 @@ const axiosInstance = axios.create({
 
 const getGenresList = axiosInstance.get('/genres?key=' + key);
 const getGames = axiosInstance.get('/games?key=' + key)
+const getGameListByGenreId = (id) => axiosInstance.get('/games?key=' + key + '&genres=' + id)
 
 export default {
     getGenresList,
-    getGames
+    getGames,
+    getGameListByGenreId
 };
