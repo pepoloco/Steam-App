@@ -16,12 +16,12 @@ const Header = () => {
             <img src={logo} width={60} height={60} />
             <div className='flex bg-slate-200 p-2 w-full items-center mx-5 rounded-full'>
                 <CiSearch />
-                <input type='text' placeholder='Search Games' className='px-2 bg-inherit dark:bg-cyan-500 outline-none' />
+                <input type='text' placeholder='Search Games' className='px-2 bg-inherit outline-none' />
             </div>
             <div>
                 {theme == 'light' ? (
-                    <IoMoon className='text-[35px] bg-slate-200 text-black p-1 rounded-full' onClick={() => setTheme('dark')} />) :
-                    (<IoSunnySharp className='text-[35px] bg-slate-200 text-black p-1 rounded-full' onClick={() => setTheme('light')} />)}
+                    <IoMoon className='text-[35px] bg-slate-200 text-black p-1 rounded-full' onClick={() => { setTheme('dark'); localStorage.setItem('theme', 'dark') }} />) :
+                    (<IoSunnySharp className='text-[35px] bg-slate-200 text-black p-1 rounded-full' onClick={() => { setTheme('light').localStorage.setTheme('theme', 'light') }} />)}
             </div>
         </div>
 
