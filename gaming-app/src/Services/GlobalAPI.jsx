@@ -6,9 +6,9 @@ const axiosInstance = axios.create({
     baseURL: "https://api.rawg.io/api"
 });
 
-const getGenresList = axiosInstance.get('/genres?key=' + key);
-const getGames = axiosInstance.get('/games?key=' + key)
-const getGameListByGenreId = (id) => axiosInstance.get('/games?key=' + key + '&genres=' + id)
+const getGenresList = () => axiosInstance.get('/genres?key=' + key);
+const getGames = () => axiosInstance.get('/games?key=' + key);
+const getGameListByGenreId = (id) => axiosInstance.get('/games?key=' + key + '&genres=' + id);
 
 export default {
     getGenresList,

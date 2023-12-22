@@ -1,13 +1,13 @@
 import React from 'react'
 import GlobalApi from '../Services/GlobalAPI'
 
-function PopularGameList({ gameList }) {
+function PopularGameList({gameList}) {
 
-    const getMovieDetails = (id) => {
-        GlobalApi.getMovieDetails(id).then(resp => {
+    const getMovieDetails=(id)=>{
+        GlobalApi.getMovieDetails(id).then(resp=>{
             console.log(resp);
         })
-    }
+    }   
     return (
         <div className='mt-5'>
             <h2 className='font-bold text-[30px] dark:text-white'>Popular Games</h2>
